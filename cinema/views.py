@@ -61,7 +61,7 @@ class MovieViewSet(viewsets.ModelViewSet):
 
             elif genres:
                 genres_ids = [int(str_id) for str_id in genres.split(",")]
-                queryset = Movie.objects.filter(genres__in=genres_ids)
+                queryset = queryset.filter(genres__in=genres_ids)
 
             elif titles:
                 queryset = queryset.filter(title__icontains=titles)
